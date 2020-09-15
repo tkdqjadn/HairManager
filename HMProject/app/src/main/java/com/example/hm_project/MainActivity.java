@@ -30,49 +30,36 @@ import com.kakao.usermgmt.callback.UnLinkResponseCallback;
 public class MainActivity extends Activity {
 
     //이메일, 나잇대, 성별, 생일값 String 추가됨
-    String strNickname, strProfile, strEmail, strAgeRange, strGender, strBirthday;
+    String strNickname, strProfile, strEmail;
     TextView TextView_get;
-
-
+    //Btn
+    Button calendarBtn, galleryBtn, mypageBtn, nearbyBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        init();
+        mainBtnSetting();
+
+
+    }
+    private void init(){
+
+        Button calendarBtn, galleryBtn, mypageBtn, nearbyBtn;
+
+        TextView tvEmail = findViewById(R.id.tvEmail);
         TextView tvNickname = findViewById(R.id.tvNickname);
         ImageView ivProfile = findViewById(R.id.ivProfile);
         Button btnLogout = findViewById(R.id.btnLogout);
-        Button btnSignout = findViewById(R.id.btnSignout);
-        //순서대로 각각 이메일, 나잇대, 성별, 생일을 보여주는 TextView 선언
-        TextView tvEmail = findViewById(R.id.tvEmail);
-        TextView tvAgeRange = findViewById(R.id.tvAgeRange);
-        TextView tvGender = findViewById(R.id.tvGender);
-        TextView tvBirthday = findViewById(R.id.tvBirthday);
-        TextView_get = findViewById(R.id.TextView_get);
 
-
-        Intent intent = getIntent();
-        Bundle bundle = intent.getExtras();
-        String ID = bundle.getString("ID");
-        String Password = bundle.getString("Password");
-        strNickname = intent.getStringExtra("name");
-        strProfile = intent.getStringExtra("profile");
-        //이메일, 나잇대, 성별, 생일을 intent에서 가져와서 각 String에 저장함
-        strEmail = intent.getStringExtra("email");
-        strAgeRange = intent.getStringExtra("ageRange");
-        strGender = intent.getStringExtra("gender");
-        strBirthday = intent.getStringExtra("birthday");
-
+        strNickname = SystemManager.NicName;
+        strProfile = SystemManager.profilePhoto;
+        strEmail = SystemManager.ID;
 
         tvNickname.setText(strNickname);
         Glide.with(this).load(strProfile).into(ivProfile);
-        //받아온 정보를 각 TextView에 표시함
         tvEmail.setText(strEmail);
-        tvAgeRange.setText(strAgeRange);
-        tvGender.setText(strGender);
-        tvBirthday.setText(strBirthday);
-        TextView_get.setText(ID+"/"+Password);
-
 
         btnLogout.setOnClickListener(new Button.OnClickListener() {
             @Override
@@ -89,62 +76,46 @@ public class MainActivity extends Activity {
                 });
             }
         });
+    }
+    private void mainBtnSetting(){
+        calendarBtn=findViewById(R.id.calendarBtn);
+        galleryBtn=findViewById(R.id.galleryBtn);
+        mypageBtn=findViewById(R.id.mypageBtn);
+        nearbyBtn=findViewById(R.id.nearbyBtn);
 
-        btnSignout.setOnClickListener(new Button.OnClickListener() {
+        Button.OnClickListener onClickListener = new Button.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                new AlertDialog.Builder(MainActivity.this)
-                        .setMessage("탈퇴하시겠습니까?")
-                        .setPositiveButton("네", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                UserManagement.getInstance().requestUnlink(new UnLinkResponseCallback() {
-                                    @Override
-                                    public void onFailure(ErrorResult errorResult) {
-                                        int result = errorResult.getErrorCode();
-
-                                        if(result == ApiErrorCode.CLIENT_ERROR_CODE) {
-                                            Toast.makeText(getApplicationContext(), "네트워크 연결이 불안정합니다. 다시 시도해 주세요.", Toast.LENGTH_SHORT).show();
-                                        } else {
-                                            Toast.makeText(getApplicationContext(), "회원탈퇴에 실패했습니다. 다시 시도해 주세요.", Toast.LENGTH_SHORT).show();
-                                        }
-                                    }
-
-                                    @Override
-                                    public void onSessionClosed(ErrorResult errorResult) {
-                                        Toast.makeText(getApplicationContext(), "로그인 세션이 닫혔습니다. 다시 로그인해 주세요.", Toast.LENGTH_SHORT).show();
-                                        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-                                        startActivity(intent);
-                                        finish();
-                                    }
-
-                                    @Override
-                                    public void onNotSignedUp() {
-                                        Toast.makeText(getApplicationContext(), "가입되지 않은 계정입니다. 다시 로그인해 주세요.", Toast.LENGTH_SHORT).show();
-                                        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-                                        startActivity(intent);
-                                        finish();
-                                    }
-
-                                    @Override
-                                    public void onSuccess(Long result) {
-                                        Toast.makeText(getApplicationContext(), "회원탈퇴에 성공했습니다.", Toast.LENGTH_SHORT).show();
-                                        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-                                        startActivity(intent);
-                                        finish();
-                                    }
-                                });
-
-                                dialog.dismiss();
-                            }
-                        })
-                        .setNegativeButton("아니요", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.dismiss();
-                            }
-                        }).show();
+            public void onClick(View view) {
+                Intent intent;
+                switch (view.getId()) {
+                    case R.id.calendarBtn :
+                        intent = new Intent(MainActivity.this,CalendarActivity.class);
+                        startActivity(intent);
+                        break ;
+                    case R.id.galleryBtn :
+                        intent = new Intent(MainActivity.this,TestActivity.class);
+                        startActivity(intent);
+                        break ;
+                    case R.id.mypageBtn :
+                        //Update
+                        break ;
+                    case R.id.nearbyBtn:
+                        intent = new Intent(MainActivity.this,CalendarActivity.class);
+                        startActivity(intent);
+                        break;
+                }
             }
-        });
+        } ;
+
+        calendarBtn.setOnClickListener(onClickListener) ;
+        galleryBtn.setOnClickListener(onClickListener) ;
+        mypageBtn.setOnClickListener(onClickListener) ;
+        nearbyBtn.setOnClickListener(onClickListener);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        finish();
     }
 }

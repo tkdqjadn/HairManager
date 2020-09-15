@@ -46,7 +46,9 @@ public class LoginActivity extends AppCompatActivity {
 
 
         sessionCallback = new SessionCallback();
+        //세션 받아옴
         Session.getCurrentSession().addCallback(sessionCallback);
+        //자동로그인
         Session.getCurrentSession().checkAndImplicitOpen();
 
 
@@ -73,7 +75,7 @@ public class LoginActivity extends AppCompatActivity {
         signup.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this,s.class);
+                Intent intent = new Intent(LoginActivity.this,CalendarActivity.class);
                 startActivity(intent);
             }
         });
@@ -165,26 +167,11 @@ public class LoginActivity extends AppCompatActivity {
                             public void onSuccess(Long result) { }
                         });
                     } else { // 모든 항목에 동의했다면 -> 유저 정보를 가져와서 MainActivity에 전달하고 MainActivity 실행.
-                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                        intent.putExtra("name", result.getNickname());
-                        intent.putExtra("profile", result.getProfileImagePath());
-
+                        Intent intent = new Intent(getApplicationContext(), CalendarActivity.class);
+                        SystemManager.NicName=result.getNickname();
+                        SystemManager.profilePhoto=result.getProfileImagePath();
                         if (result.getKakaoAccount().hasEmail() == OptionalBoolean.TRUE)
-                            intent.putExtra("email", result.getKakaoAccount().getEmail());
-                        else
-                            intent.putExtra("email", "none");
-                        if (result.getKakaoAccount().hasAgeRange() == OptionalBoolean.TRUE)
-                            intent.putExtra("ageRange", result.getKakaoAccount().getAgeRange().getValue());
-                        else
-                            intent.putExtra("ageRange", "none");
-                        if (result.getKakaoAccount().hasGender() == OptionalBoolean.TRUE)
-                            intent.putExtra("gender", result.getKakaoAccount().getGender().getValue());
-                        else
-                            intent.putExtra("gender", "none");
-                        if (result.getKakaoAccount().hasBirthday() == OptionalBoolean.TRUE)
-                            intent.putExtra("birthday", result.getKakaoAccount().getBirthday());
-                        else
-                            intent.putExtra("birthday", "none");
+                            SystemManager.ID=result.getKakaoAccount().getEmail();
 
                         startActivity(intent);
                         finish();

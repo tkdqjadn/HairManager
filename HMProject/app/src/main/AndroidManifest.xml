@@ -27,6 +27,11 @@
         <activity android:name=".MainActivity">
             
         </activity>
+        <activity android:name=".CalendarActivity">
+        </activity>
+
+        <activity android:name=".TestActivity">
+        </activity>
     </application>
 
 </manifest>
