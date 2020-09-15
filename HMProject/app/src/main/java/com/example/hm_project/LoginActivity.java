@@ -37,7 +37,7 @@ public class LoginActivity extends AppCompatActivity {
     private SessionCallback sessionCallback;
     TextInputEditText TextInputEditText_ID, TextInputEditText_Password;
     RelativeLayout RelativeLayout_login;
-    TextView signup;
+    TextView Signup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,35 +51,35 @@ public class LoginActivity extends AppCompatActivity {
         //자동로그인
         Session.getCurrentSession().checkAndImplicitOpen();
 
+        init();
+    }
 
+    private void init(){
         TextInputEditText_ID = findViewById(R.id.TextInputEditText_ID);
         TextInputEditText_Password = findViewById(R.id.TextInputEditText_Password);
         RelativeLayout_login = findViewById(R.id.RelativeLayout_login);
-        signup = findViewById(R.id.signup);
+        Signup = findViewById(R.id.signup);
 
-        RelativeLayout_login.setClickable(true);
+        RelativeLayout_login.setClickable(true);  // 로그인을 클릭했을 때 MainActivity로 이동시킨다.
         RelativeLayout_login.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                String ID = TextInputEditText_ID.getText().toString();
-                String Password = TextInputEditText_Password.getText().toString();
-
                 Intent intent = new Intent(LoginActivity.this,MainActivity.class);
-                intent.putExtra("ID",ID);
-                intent.putExtra("Password",Password);
                 startActivity(intent);
             }
         });
 
-        signup.setClickable(true);
-        signup.setOnClickListener(new View.OnClickListener(){
+        Signup.setClickable(true); // Signup을 클릭했을 때 Signup화면으로 이동시킨다.
+        Signup.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this,CalendarActivity.class);
+                Intent intent = new Intent(LoginActivity.this,SignUpActivity.class);
                 startActivity(intent);
             }
         });
     }
+
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
