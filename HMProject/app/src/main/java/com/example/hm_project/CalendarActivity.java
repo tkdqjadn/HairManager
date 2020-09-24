@@ -96,7 +96,7 @@ public class CalendarActivity extends AppCompatActivity {
                         //Update
                         break ;
                     case R.id.galleryBtn :
-                        intent = new Intent(CalendarActivity.this,TestActivity.class);
+                        intent = new Intent(CalendarActivity.this,GalleryActivity.class);
                         startActivity(intent);
                         break ;
                     case R.id.mypageBtn :

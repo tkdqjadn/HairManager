@@ -93,7 +93,7 @@ public class MainActivity extends Activity {
                         startActivity(intent);
                         break ;
                     case R.id.galleryBtn :
-                        intent = new Intent(MainActivity.this,TestActivity.class);
+                        intent = new Intent(MainActivity.this,GalleryActivity.class);
                         startActivity(intent);
                         break ;
                     case R.id.mypageBtn :
