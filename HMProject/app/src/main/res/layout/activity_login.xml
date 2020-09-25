@@ -5,28 +5,21 @@
     android:orientation="vertical"
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
-    android:paddingTop="16dp"
+    android:paddingTop="40dp"
     >
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textColor="@android:color/black"
-        android:textSize="24sp"
-        android:layout_marginBottom="16dp"
+        android:textColor="@color/colorGreen"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        android:layout_marginBottom="30dp"
         android:text="Hair Manager"
         ></TextView>
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:background="@null"
-        android:src="@drawable/hair_imoticon"
-        android:layout_gravity="center"
-        android:layout_marginBottom="16dp"
-        >
-    </ImageView>
+
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
@@ -36,7 +29,8 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:id="@+id/TextInputEditText_ID"
-            android:hint="ID"
+            android:hint="Email"
+
             >
         </com.google.android.material.textfield.TextInputEditText>
     </com.google.android.material.textfield.TextInputLayout>
@@ -57,84 +51,104 @@
     <RelativeLayout
         android:id="@+id/RelativeLayout_login"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="40dp"
         android:orientation="horizontal"
         android:gravity="center"
-        android:background="@color/colorGray"
+        android:background="@color/colorGreen"
         android:paddingLeft="12dp"
         android:paddingRight="12dp"
         android:clickable="true"
         >
 
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="50dp"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="337dp"
-            android:background="@null"
-            android:gravity=""
-            android:src="@drawable/icon_profile"></ImageView>
-
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="40dp"
             android:textColor="#ffffff"
-            android:stateListAnimator="@null"
             android:layout_gravity="center"
+            android:stateListAnimator="@null"
             android:gravity="center"
+            android:textSize="16dp"
+            android:textStyle="bold"
             android:text="Log in">
         </TextView>
 
     </RelativeLayout>
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+
+
+    <TextView
+        android:id="@+id/FindEmail"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:layout_marginBottom="16dp"
-        android:layout_marginTop="16dp"
-        android:text="Or"
+        android:text="이메일 찾기"
         >
     </TextView>
 
-    <com.kakao.usermgmt.LoginButton
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-    </com.kakao.usermgmt.LoginButton>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="16dp"
-        android:weightSum="10"
-        >
-
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="20dp"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:layout_weight="5"
-            android:textSize="24sp"
-            android:text="Find Password"
+            android:text="|"
             >
         </TextView>
 
         <TextView
-            android:id="@+id/signup"
-            android:clickable="true"
-            android:layout_width="wrap_content"
+            android:id="@+id/FindPassowrd"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:layout_weight="5"
-            android:textColor="@android:color/black"
-            android:textSize="24sp"
-            android:text="Sign up"
+            android:text="비밀번호 찾기"
             >
+        </TextView>
+
+        <TextView
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="|"
+            >
+        </TextView>
+
+        <TextView
+            android:id="@+id/SignUP"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="회원가입">
         </TextView>
 
     </LinearLayout>
 
+    <RelativeLayout
+        android:id="@+id/RelativeLayout_login_Kakao"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:background="@color/colorYellow"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        android:clickable="true"
+        >
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:textColor="#ffffff"
+            android:stateListAnimator="@null"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:text="Kakao">
+        </TextView>
+
+    </RelativeLayout>
 </LinearLayout>

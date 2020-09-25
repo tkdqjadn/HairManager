@@ -24,18 +24,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SignUpActivity">
-        </activity>
-
-        <activity android:name=".MainActivity">
-            
-        </activity>
-        <activity android:name=".CalendarActivity">
-        </activity>
-
-        <activity android:name=".GalleryActivity">
-        </activity>
-
+        <activity android:name=".SignUpActivity"></activity>
+        <activity android:name=".FindEmailActivity"></activity>
+        <activity android:name=".FindPasswordActivity"></activity>
+        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".CalendarActivity"></activity>
+        <activity android:name=".GalleryActivity"></activity>
 
     </application>
 

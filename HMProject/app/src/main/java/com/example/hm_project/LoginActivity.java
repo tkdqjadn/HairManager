@@ -36,19 +36,16 @@ public class LoginActivity extends AppCompatActivity {
 
     private SessionCallback sessionCallback;
     TextInputEditText TextInputEditText_ID, TextInputEditText_Password;
-    RelativeLayout RelativeLayout_login;
-    TextView Signup;
+    RelativeLayout RelativeLayout_login, RelativeLayout_login_kakao;
+    TextView FindEmail,FindPassword,SignUp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-
-        sessionCallback = new SessionCallback();
-        //세션 받아옴
-        Session.getCurrentSession().addCallback(sessionCallback);
-        //자동로그인
+        sessionCallback = new SessionCallback(); //세션 받아옴
+        Session.getCurrentSession().addCallback(sessionCallback);//자동로그인
         Session.getCurrentSession().checkAndImplicitOpen();
 
         init();
@@ -58,7 +55,10 @@ public class LoginActivity extends AppCompatActivity {
         TextInputEditText_ID = findViewById(R.id.TextInputEditText_ID);
         TextInputEditText_Password = findViewById(R.id.TextInputEditText_Password);
         RelativeLayout_login = findViewById(R.id.RelativeLayout_login);
-        Signup = findViewById(R.id.signup);
+        RelativeLayout_login_kakao=findViewById(R.id.RelativeLayout_login_Kakao);
+        FindEmail=findViewById(R.id.FindEmail);
+        FindPassword=findViewById(R.id.FindPassowrd);
+        SignUp = findViewById(R.id.SignUP);
 
         RelativeLayout_login.setClickable(true);  // 로그인을 클릭했을 때 MainActivity로 이동시킨다.
         RelativeLayout_login.setOnClickListener(new View.OnClickListener(){
@@ -69,8 +69,34 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        Signup.setClickable(true); // Signup을 클릭했을 때 Signup화면으로 이동시킨다.
-        Signup.setOnClickListener(new View.OnClickListener(){
+        RelativeLayout_login_kakao.setClickable(true);
+        RelativeLayout_login_kakao.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Session.getCurrentSession().open(AuthType.KAKAO_LOGIN_ALL, LoginActivity.this);
+            }
+        });
+
+        FindEmail.setClickable(true);
+        FindEmail.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this,FindEmailActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        FindPassword.setClickable(true);
+        FindPassword.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this,FindPasswordActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        SignUp.setClickable(true); // Signup을 클릭했을 때 Signup화면으로 이동시킨다.
+        SignUp.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(LoginActivity.this,SignUpActivity.class);
