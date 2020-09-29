@@ -52,13 +52,14 @@
                     android:layout_height="40dp"
                     android:layout_gravity="center"
                     android:layout_marginRight="10dp"
+                    android:paddingLeft="15dp"
                     android:background="@drawable/white_edittext" />
 
                 <Button
                     android:id="@+id/overlap_email"
-                    android:layout_width="80dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="40dp"
-                    android:layout_gravity="center"
+                    android:gravity="center"
                     android:text="중복확인"
                     android:textColor="#ffffff"
                     android:textSize="15dp"
@@ -72,6 +73,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#FF0000"
+                android:paddingLeft="15dp"
                 tools:text="이메일형식으로 입력해주세요 " />
         </LinearLayout>
 
@@ -87,18 +89,20 @@
                     android:text="비밀번호"/>
 
                 <EditText
-                        android:id="@+id/input_password"
-                        android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:layout_gravity="center"
-                        android:background="@drawable/white_edittext" />
+                    android:id="@+id/input_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:paddingLeft="15dp"
+                    android:background="@drawable/white_edittext" />
 
                 <TextView
                     android:id="@+id/error_password"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#FF0000"
-                    tools:text="8~20자 영문 대 소문자, 숫자를 사용하세요. " />
+                    android:paddingLeft="15dp"
+                    tools:text="8~20자 알파벳 대·소문자, 숫자, 특수문자를 사용하세요. " />
         </LinearLayout>
 
     <LinearLayout
@@ -116,6 +120,7 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_gravity="center"
+            android:paddingLeft="15dp"
             android:background="@drawable/white_edittext" />
 
         <TextView
@@ -123,6 +128,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#FF0000"
+            android:paddingLeft="15dp"
             tools:text="비밀번호가 일치하지 않습니다." />
     </LinearLayout>
 
@@ -137,11 +143,12 @@
             android:text="이름"/>
 
        <EditText
-            android:id="@+id/input_name"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:background="@drawable/white_edittext" />
+           android:id="@+id/input_name"
+           android:layout_width="match_parent"
+           android:layout_height="40dp"
+           android:layout_gravity="center"
+           android:paddingLeft="15dp"
+           android:background="@drawable/white_edittext" />
     </LinearLayout>
 
     <LinearLayout
@@ -166,11 +173,13 @@
                 android:layout_height="40dp"
                 android:layout_gravity="center"
                 android:layout_marginRight="10dp"
+                android:paddingLeft="15dp"
+                android:hint="01XXXXXXXXX"
                 android:background="@drawable/white_edittext" />
 
             <Button
                 android:id="@+id/overlap_phoneNO"
-                android:layout_width="80dp"
+                android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:layout_gravity="center"
                 android:text="중복확인"
@@ -186,6 +195,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#FF0000"
+            android:paddingLeft="15dp"
             tools:text=" - 을 제외하고 입력해주세요 " />
     </LinearLayout>
 
@@ -197,13 +207,17 @@
         <TextView
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:text="생년월일"/>
+            android:text="생년월일" />
 
         <EditText
             android:id="@+id/input_birthday"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_gravity="center"
+            android:paddingLeft="15dp"
+            android:clickable="true"
+            android:editable="false"
+            android:focusable="false"
             android:background="@drawable/white_edittext"/>
     </LinearLayout>
 

@@ -32,6 +32,7 @@ public class TestActivity extends AppCompatActivity {
         image2 = (ImageView)findViewById(R.id.img2);
         image3 = (ImageView)findViewById(R.id.img3);
 
+
         Button btnImage = (Button)findViewById(R.id.btnImage);
         btnImage.setOnClickListener(new View.OnClickListener(){
             @Override
