@@ -1,4 +1,4 @@
-package com.example.hm_project;
+package com.example.hm_project.view.activity;
 
 
 import android.os.Bundle;
@@ -8,6 +8,10 @@ import android.widget.EditText;
 import android.widget.GridView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.hm_project.data.DiaryData;
+import com.example.hm_project.view.adapter.DiarySearchAdapter;
+import com.example.hm_project.R;
 
 import java.util.ArrayList;
 

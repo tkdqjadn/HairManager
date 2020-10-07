@@ -1,4 +1,4 @@
-package com.example.hm_project;
+package com.example.hm_project.data;
 
 public class SystemManager {
     static public String ID="asd";

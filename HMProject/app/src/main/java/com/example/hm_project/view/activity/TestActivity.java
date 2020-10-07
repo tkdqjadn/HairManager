@@ -1,4 +1,4 @@
-package com.example.hm_project;
+package com.example.hm_project.view.activity;
 
 import android.content.ClipData;
 import android.content.Intent;
@@ -11,6 +11,7 @@ import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.hm_project.R;
 
 
 public class TestActivity extends AppCompatActivity {

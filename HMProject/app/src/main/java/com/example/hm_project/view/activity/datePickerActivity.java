@@ -1,4 +1,4 @@
-package com.example.hm_project;
+package com.example.hm_project.view.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.DatePicker;
+
+import com.example.hm_project.R;
+
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 

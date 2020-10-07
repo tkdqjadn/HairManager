@@ -1,8 +1,9 @@
-package com.example.hm_project;
+package com.example.hm_project.util;
 
 import android.app.Activity;
 import android.graphics.drawable.Drawable;
 
+import com.example.hm_project.R;
 import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.prolificinteractive.materialcalendarview.DayViewDecorator;
 import com.prolificinteractive.materialcalendarview.DayViewFacade;

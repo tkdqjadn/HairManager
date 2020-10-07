@@ -1,15 +1,8 @@
-package com.example.hm_project;
+package com.example.hm_project.view.activity;
 
 import android.content.Intent;
 
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.Signature;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.util.Base64;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
@@ -17,6 +10,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.hm_project.R;
+import com.example.hm_project.data.SystemManager;
 import com.google.android.material.textfield.TextInputEditText;
 import com.kakao.auth.AuthType;
 import com.kakao.auth.ISessionCallback;
@@ -29,8 +24,6 @@ import com.kakao.usermgmt.callback.UnLinkResponseCallback;
 import com.kakao.usermgmt.response.MeV2Response;
 import com.kakao.util.OptionalBoolean;
 import com.kakao.util.exception.KakaoException;
-
-import java.security.MessageDigest;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -99,7 +92,7 @@ public class LoginActivity extends AppCompatActivity {
         SignUp.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this,SignUpActivity.class);
+                Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
                 startActivity(intent);
             }
         });

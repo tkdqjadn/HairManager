@@ -1,14 +1,16 @@
-package com.example.hm_project;
+package com.example.hm_project.view.adapter;
 
 
 import android.content.Context;
-import android.graphics.drawable.GradientDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.hm_project.data.DiaryData;
+import com.example.hm_project.R;
 
 import java.util.ArrayList;
 

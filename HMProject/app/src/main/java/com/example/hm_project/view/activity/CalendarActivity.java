@@ -1,9 +1,8 @@
-package com.example.hm_project;
+package com.example.hm_project.view.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
 
-import android.database.Cursor;
 import android.graphics.Color;
 import android.os.AsyncTask;
 
@@ -15,6 +14,11 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.hm_project.util.EventDecorator;
+import com.example.hm_project.util.OneDayDecorator;
+import com.example.hm_project.R;
+import com.example.hm_project.util.SaturdayDecorator;
+import com.example.hm_project.util.SundayDecorator;
 import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.prolificinteractive.materialcalendarview.CalendarMode;
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView;

@@ -1,4 +1,4 @@
-package com.example.hm_project;
+package com.example.hm_project.etc;
 
 import android.app.Application;
 import android.content.Context;

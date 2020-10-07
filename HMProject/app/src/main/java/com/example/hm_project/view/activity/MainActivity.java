@@ -1,30 +1,20 @@
-package com.example.hm_project;
+package com.example.hm_project.view.activity;
 
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.bumptech.glide.Glide;
-import com.google.android.material.textfield.TextInputEditText;
-import com.kakao.auth.ApiErrorCode;
-import com.kakao.network.ErrorResult;
+import com.example.hm_project.R;
+import com.example.hm_project.data.SystemManager;
 import com.kakao.usermgmt.UserManagement;
 import com.kakao.usermgmt.callback.LogoutResponseCallback;
-import com.kakao.usermgmt.callback.UnLinkResponseCallback;
 
 
 public class MainActivity extends Activity {
